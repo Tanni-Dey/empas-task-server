@@ -68,7 +68,7 @@ async function run() {
       } else {
         const queryByName = { name: searchText };
         const cursor = bookCollection.find(queryByName);
-        if (cursor.toArray.length !== 0) {
+        if ((await bookCollection.countDocuments(queryByName)) !== 0) {
           allBook = await cursor.toArray(cursor);
         } else {
           const queryByAuthor = { author: searchText };
