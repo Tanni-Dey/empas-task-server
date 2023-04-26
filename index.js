@@ -78,13 +78,6 @@ async function run() {
       }
       res.send(allBook);
     });
-    // // all book list
-    // app.get("/books", async (req, res) => {
-    //   const query = {};
-    //   const cursor = bookCollection.find(query);
-    //   const allBook = await cursor.toArray(cursor);
-    //   res.send(allBook);
-    // });
 
     // post book
     app.post("/books", async (req, res) => {
@@ -93,28 +86,7 @@ async function run() {
       res.send(addBook);
     });
 
-    // //load single todo with id
-    // app.get("/todo/:id", async (req, res) => {
-    //   const id = req.params.id;
-    //   const query = { _id: new ObjectId(id) };
-    //   const oneTodo = await todoCollection.findOne(query);
-    //   res.send(oneTodo);
-    // });
-
-    // //update todo
-    // app.put("/todo/:id", async (req, res) => {
-    //   const id = req.params.id;
-    //   const upTodo = req.body;
-    //   const filter = { _id: new ObjectId(id) };
-    //   const options = { upsert: true };
-    //   const updateTodo = {
-    //     $set: upTodo,
-    //   };
-    //   const todo = await todoCollection.updateOne(filter, updateTodo, options);
-    //   res.send(todo);
-    // });
-
-    //todo data delete
+    //book data delete
     app.delete("/book/:id", async (req, res) => {
       const id = req.params.id;
       const query = { _id: new ObjectId(id) };
